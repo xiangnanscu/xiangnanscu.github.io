@@ -14,15 +14,6 @@
     "url": "https://github.com/xiangnanscu/xiangnanscu.github.io/issues"
   },
   "homepage": "https://xnscu.com/xiangnanscu.github.io/",
-  "lint-staged": {
-    "*.{js,json}": [
-      "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "eslint",
-      "prettier --parser=typescript --write"
-    ]
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
