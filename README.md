@@ -1,6 +1,6 @@
 # Xiang Nan's Blog
-- page - [https://xiangnanscu.github.io/](https://xiangnanscu.github.io)
+- homepage - [https://xnscu.com/](https://xnscu.com)
 - repo - [https://github.com/xiangnanscu/xiangnanscu.github.io](https://github.com/xiangnanscu/xiangnanscu.github.io)
-## projects
-- [lua2js](https://xiangnanscu.github.io/lua2js/) - transform lua to js literally. 
-- [tiku](https://xiangnanscu.github.io/tiku/) - an question parser
+## Projects
+- [js2lua](https://xnscu.com/js2lua/) - Writing LuaJIT with the expressiveness of JavaScript.
+- [tiku](https://xnscu.com/tiku/) - an question parser

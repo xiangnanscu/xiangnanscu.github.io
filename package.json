@@ -1,0 +1,53 @@
+{
+  "name": "xnscu",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Xiang Nan's Blog",
+  "main": "src/index.mjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiangnanscu/xiangnanscu.github.io.git"
+  },
+  "author": "Xiang Nan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiangnanscu/xiangnanscu.github.io/issues"
+  },
+  "homepage": "https://xnscu.com/xiangnanscu.github.io/",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "commit": "git add . && git commit -am ",
+    "push": "yarn commit",
+    "postpush": "while true; do git push origin master && { echo 'Git push succeeded'; break; } || echo 'Git push failed, retrying in 1 seconds'; sleep 1; done",
+    "pull": "while true; do git pull origin master && { echo 'Git pull succeeded'; break; } || echo 'Git pull failed, retrying in 1 seconds'; sleep 1; done",
+    "prerelease": "npm --no-git-tag-version version minor",
+    "release": "node makeDocs.js && push_option=release npm run push",
+    "rc": "yarn release"
+  },
+  "dependencies": {
+    "yargs-parser": "^21.1.1",
+    "@babel/parser": "^7.22.14",
+    "lua-fmt": "^2.6.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "@prettier/plugin-lua": "^0.0.3",
+    "sass": "^1.52.1",
+    "source-map-support": "^0.5.21",
+    "yargs": "^17.7.2",
+    "vue": "^3.2.25",
+    "bootstrap": "^5.1.3",
+    "file-saver": "^2.0.5",
+    "highlight.js": "^11.5.1",
+    "@highlightjs/vue-plugin": "^2.1.0",
+    "@rushstack/eslint-patch": "^1.3.3",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "eslint": "^8.47.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "vite": "^2.9.9",
+    "vite-plugin-require-transform": "^1.0.21",
+    "vue-eslint-parser": "^9.3.1"
+  }
+}
