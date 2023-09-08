@@ -21,7 +21,7 @@ jobs:
         run: npm i -g npm@latest
 
       - name: Install dependencies 🚀
-        run: npm ci --prefer-offline --no-audit --no-optional
+        run: npm i
 
       - name: Build 🔧
         run: npm run build
