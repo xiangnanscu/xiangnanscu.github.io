@@ -7,7 +7,7 @@ let a = 1,
 var x = (a) => (c ? 2 : 3);
 var foo = a + b * c;
 createApp(App).mount("#app");
-var addNumber = () => { };
+var addNumber = () => {};
 var hello = "world"[(1, 2, 3)].forEach(addNumber);
 var text = "";
 var position = 1;

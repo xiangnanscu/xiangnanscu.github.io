@@ -5,11 +5,7 @@ module.exports = {
     node: true,
   },
   // https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
-  extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "plugin:prettier/recommended",
-  ],
+  extends: ["plugin:vue/vue3-essential", "eslint:recommended", "plugin:prettier/recommended"],
   // plugins: ['prettier'], // seems place prettier at the last
   parserOptions: {
     sourceType: "module",
@@ -23,7 +19,7 @@ module.exports = {
     "prettier/prettier": [
       "warn",
       {
-        printWidth: 80,
+        // printWidth: 90,
         semi: true,
         trailingComma: "all",
         arrowParens: "always",
@@ -46,7 +42,7 @@ module.exports = {
       },
     ],
     "no-unused-vars": "warn",
-    "max-len": ["error", { code: 80, ignoreUrls: true }],
+    // "max-len": ["error", { code: 94, ignoreUrls: true }],
     "no-mixed-operators": "off",
     "no-unexpected-multiline": "off",
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
