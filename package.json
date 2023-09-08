@@ -30,6 +30,7 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "vite-plugin-eslint": "^1.8.1",
     "@types/node": "^16.4.7",
     "@typescript-eslint/parser": "^6.6.0",
     "@vitejs/plugin-vue": "^4.2.3",

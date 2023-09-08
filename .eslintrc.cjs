@@ -1,18 +1,56 @@
 module.exports = {
   root: true,
   env: {
-    amd: true,
-    node: true
+    browser: true,
+    node: true,
   },
-  plugins: ['eslint-plugin-prettier'],
-  extends: ['plugin:vue/vue3-essential', 'eslint:recommended', 'eslint-config-prettier'],
+  // https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
+  extends: [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+  ],
+  // plugins: ['prettier'], // seems place prettier at the last
   parserOptions: {
-    ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser'
+    sourceType: "module",
+    ecmaVersion: "latest",
+    parser: "@typescript-eslint/parser",
+  },
+  globals: {
+    $nuxt: true,
   },
   rules: {
-    'prettier/prettier': 'error',
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-  }
-}
+    "prettier/prettier": [
+      "error",
+      {
+        printWidth: 80,
+        semi: true,
+        trailingComma: "all",
+        arrowParens: "yes",
+        bracketSpacing: true,
+        endOfLine: "lf",
+        htmlWhitespaceSensitivity: "css",
+        insertPragma: false,
+        singleAttributePerLine: false,
+        bracketSameLine: false,
+        jsxBracketSameLine: false,
+        jsxSingleQuote: false,
+        proseWrap: "preserve",
+        quoteProps: "as-needed",
+        requirePragma: false,
+        singleQuote: false,
+        tabWidth: 2,
+        useTabs: false,
+        embeddedLanguageFormatting: "auto",
+        vueIndentScriptAndStyle: false,
+        filepath: "/root/xiangnanscu.github.io/src/main.js",
+        parser: "babel",
+      },
+    ],
+    "max-len": ["error", { code: 80, ignoreUrls: true }],
+    "no-mixed-operators": "warn",
+    "no-unexpected-multiline": "warn",
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+  },
+};
