@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router/auto'
 
 const walkRoutes = (routes: any) => {
+  console.log({ routes })
   for (const route of routes) {
     if (route.children) {
       walkRoutes(route.children)

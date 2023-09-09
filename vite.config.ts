@@ -57,7 +57,7 @@ const plugins = [
     extensions: ['.vue'],
     exclude: [],
     dts: './src/unplugin/typed-router.d.ts',
-    getRouteName: (arg) => arg.value.rawSegment, // AsFileName
+    // getRouteName: (arg) => arg.value.rawSegment, // AsFileName
     routeBlockLang: 'json5',
     importMode: process.env.NODE_ENV === 'production' ? 'sync' : 'async'
   }),
