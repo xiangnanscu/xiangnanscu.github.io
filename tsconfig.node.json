@@ -10,7 +10,11 @@
   "compilerOptions": {
     "composite": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
+    "types": [
+      "node"
+    ],
+    "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     "noUnusedParameters": false,
     "strictFunctionTypes": false,
@@ -33,9 +37,6 @@
       "@/*": [
         "./src/*"
       ]
-    },
-    "types": [
-      "node"
-    ]
+    }
   }
 }
