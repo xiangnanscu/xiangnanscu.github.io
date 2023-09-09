@@ -12,6 +12,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest'
   },
+  env: {
+    node: true,
+    amd: true
+  },
   rules: {
     'no-unused-vars': 'warn',
     // "max-len": ["error", { code: 94, ignoreUrls: true }],
