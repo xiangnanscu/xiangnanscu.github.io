@@ -14,8 +14,8 @@ import {
   VantResolver,
   PrimeVueResolver
 } from 'unplugin-vue-components/resolvers'
-import VitePluginOss from '@xiangnanscu/vite-plugin-alioss'
-import ViteRequireContext from '@originjs/vite-plugin-require-context'
+// import VitePluginOss from '@xiangnanscu/vite-plugin-alioss'
+// import ViteRequireContext from '@originjs/vite-plugin-require-context'
 import dotenvExpand from 'dotenv-expand'
 // import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
@@ -28,7 +28,7 @@ const { parsed: exposedEnvs } = dotenvExpand.expand({
 })
 
 const envKeys = Object.fromEntries(
-  Object.entries(exposedEnvs).map(([k, v]) => [
+  Object.entries(exposedEnvs || {}).map(([k, v]) => [
     `process.env.${k}`,
     `"${v.replaceAll(/"/g, '\\"')}"`
   ])
@@ -94,7 +94,7 @@ const plugins = [
   {
     // this plugin handles ?b64 tags
     name: 'vite-b64-plugin',
-    transform(code, id) {
+    transform(code: string, id: string) {
       if (!id.match(/\?b64$/)) return
       // console.log(id, code);
       const path = id.replace(/\?b64/, '')
@@ -105,7 +105,7 @@ const plugins = [
   {
     // https://stackoverflow.com/questions/21797299/convert-base64-string-to-arraybuffer
     name: 'vite-office-plugin',
-    transform(code, id) {
+    transform(code: string, id: string) {
       if (!id.match(/\.(xlsx|docx|zip)$/)) return
       const path = id
       const data = readFileSync(path, 'base64')

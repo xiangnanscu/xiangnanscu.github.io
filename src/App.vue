@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import { ref } from 'vue'
 // import Calendar from 'primevue/calendar'
 const date = ref()
 const value = ref('')
-const items = ref([])
+const items: Ref<string[]> = ref([])
 
 const search = (event) => {
   items.value = [...Array(10).keys()].map((item) => event.query + '-' + item)
@@ -20,7 +18,7 @@ const search = (event) => {
       <HelloWorld msg="You did it!" />
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/AboutView">About</RouterLink>
       </nav>
       <Calendar v-model="date" />
       <AutoComplete v-model="value" :suggestions="items" @complete="search" />

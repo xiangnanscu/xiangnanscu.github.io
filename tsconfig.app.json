@@ -12,6 +12,7 @@
     "src/**/__tests__/*"
   ],
   "compilerOptions": {
+    "noImplicitAny": false,
     "composite": true,
     "baseUrl": ".",
     "paths": {
