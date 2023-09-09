@@ -1,5 +1,6 @@
-import './assets/main.css'
+import './style.css'
 // import 'primevue/resources/themes/bootstrap4-light-blue/theme.css'
+import 'primeflex/primeflex.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config'

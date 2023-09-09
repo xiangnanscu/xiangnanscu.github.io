@@ -20,7 +20,10 @@ module.exports = {
     amd: true
   },
   rules: {
-    'no-unused-vars': 'warn',
+    'vue/multi-word-component-names': 'off',
+    'vue/no-unused-vars': ['warn', { ignorePattern: '^_' }],
+    'prefer-const': ['error', { destructuring: 'all', ignoreReadBeforeAssign: false }],
+    'no-unused-vars': ['warn', { vars: 'all', args: 'after-used', argsIgnorePattern: '^_' }],
     // "max-len": ["error", { code: 94, ignoreUrls: true }],
     'no-mixed-operators': 'off',
     'no-unexpected-multiline': 'off',
