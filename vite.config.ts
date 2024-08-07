@@ -1,155 +1,113 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from "node:url";
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import { readFileSync } from 'fs'
-import * as dotenv from 'dotenv'
-import { VueRouterAutoImports } from 'unplugin-vue-router'
-import VueRouter from 'unplugin-vue-router/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import {
-  AntDesignVueResolver,
-  VantResolver,
-  PrimeVueResolver
-} from 'unplugin-vue-components/resolvers'
-// import VitePluginOss from '@xiangnanscu/vite-plugin-alioss'
-// import ViteRequireContext from '@originjs/vite-plugin-require-context'
-import dotenvExpand from 'dotenv-expand'
-// import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
+import { VueRouterAutoImports } from "unplugin-vue-router";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import VueRouter from "unplugin-vue-router/vite";
+
+import * as dotenv from "dotenv";
+
+import dotenvExpand from "dotenv-expand";
 
 const { parsed: exposedEnvs } = dotenvExpand.expand({
   ...dotenv.config({
     override: false,
-    path: '.env'
+    path: ".env",
   }),
-  ignoreProcessEnv: true
-})
+  ignoreProcessEnv: true,
+});
 
-const envKeys = Object.fromEntries(
-  Object.entries(exposedEnvs || {}).map(([k, v]) => [
-    `process.env.${k}`,
-    `"${v.replaceAll(/"/g, '\\"')}"`
-  ])
-)
-const env = process.env
-const VITE_PROXY_PREFIX = process.env.VITE_PROXY_PREFIX || '/toXodel'
-const VITE_PROXY_PREFIX_REGEX = new RegExp('^' + VITE_PROXY_PREFIX)
-const VITE_APP_NAME = process.env.VITE_APP_NAME
-const baseUrl = '/' // env.NODE_ENV == 'production' ? `https:${env.ALIOSS_URL}${VITE_APP_NAME}/` : '/'
-
-const plugins = [
-  Components({
-    dts: './src/unplugin/components.d.ts',
-    dirs: ['./src/components', './src/localComponents'],
-    extensions: ['vue'],
-    directoryAsNamespace: true,
-    resolvers: [
-      AntDesignVueResolver(),
-      VantResolver(),
-      // https://primevue.org/theming/#builtinthemes
-      PrimeVueResolver({ importTheme: 'bootstrap4-light-blue', importIcons: true })
-    ]
-  }),
-  VueRouter({
-    routesFolder: ['./src/views'],
-    extensions: ['.vue'],
-    exclude: [],
-    dts: './src/unplugin/typed-router.d.ts',
-    // getRouteName: (arg) => arg.value.rawSegment, // AsFileName
-    routeBlockLang: 'json5',
-    importMode: process.env.NODE_ENV === 'production' ? 'sync' : 'async'
-  }),
-  vue(),
-  vueJsx({}),
-  AutoImport({
-    dts: './src/unplugin/auto-imports.d.ts',
-    eslintrc: {
-      enabled: true,
-      filepath: './src/unplugin/.eslintrc-auto-import.json',
-      globalsPropValue: true
-    },
-    imports: [
-      'vue',
-      'pinia',
-      VueRouterAutoImports,
-      { 'vue-router/auto': ['useLink'] },
-      '@vueuse/core'
-    ],
-    vueTemplate: true,
-    include: [
-      /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-      /\.vue$/,
-      /\.vue\?vue/ // .vue
-    ],
-    dirs: [
-      './src/components', // only root modules
-      './src/composables', // only root modules
-      './src/globals',
-      './src/store/**' // all nested modules
-    ]
-  }),
-  // https://docs.sheetjs.com/docs/demos/static/vitejs
-  {
-    // this plugin handles ?b64 tags
-    name: 'vite-b64-plugin',
-    transform(code: string, id: string) {
-      if (!id.match(/\?b64$/)) return
-      // console.log(id, code);
-      const path = id.replace(/\?b64/, '')
-      const data = readFileSync(path, 'base64')
-      return `export default '${data}'`
-    }
-  },
-  {
-    // https://stackoverflow.com/questions/21797299/convert-base64-string-to-arraybuffer
-    name: 'vite-office-plugin',
-    transform(code: string, id: string) {
-      if (!id.match(/\.(xlsx|docx|zip)$/)) return
-      const path = id
-      const data = readFileSync(path, 'base64')
-      return `export default Uint8Array.from(atob('${data}'), (c) => c.charCodeAt(0))`
-    }
-  }
-  // ViteRequireContext()
-]
-
+// https://vitejs.dev/config/
 export default defineConfig({
-  build: {
-    // minify: true
-  },
-  assetsInclude: ['**/*.xlsx', '**/*.docx'],
-  base: baseUrl,
-  define: envKeys,
-  plugins,
-  optimizeDeps: {
-    include: ['vue']
-  },
+  base: "/",
+  define: Object.fromEntries(Object.entries(exposedEnvs || {}).map(([k, v]) => [`process.env.${k}`, JSON.stringify(v)])),
+  plugins: [
+    nodePolyfills({
+      // To add only specific polyfills, add them here. If no option is passed, adds all polyfills
+      // include: ["path"],
+      // To exclude specific polyfills, add them to this list. Note: if include is provided, this has no effect
+      exclude: [
+        "http", // Excludes the polyfill for `http` and `node:http`.
+      ],
+      // Whether to polyfill specific globals.
+      globals: {
+        Buffer: true, // can also be 'build', 'dev', or false
+        global: true,
+        process: true,
+      },
+      // Override the default polyfills for specific modules.
+      overrides: {
+        // Since `fs` is not supported in browsers, we can use the `memfs` package to polyfill it.
+        // fs: "memfs",
+      },
+      // Whether to polyfill `node:` protocol imports.
+      protocolImports: true,
+    }),
+    // https://github.com/unplugin/unplugin-vue-components?tab=readme-ov-file#configuration
+    Components({
+      dirs: ["./components", "./src/components"],
+      extensions: ["vue"],
+      dts: "./src/unplugin/components.d.ts",
+      directoryAsNamespace: true,
+      collapseSamePrefixes: true,
+      resolvers: [
+        // AntDesignVueResolver({ resolveIcons: true }),
+        // PrimeVueResolver()
+      ],
+    }),
+    // https://uvr.esm.is/guide/configuration.html
+    // https://uvr.esm.is/introduction.html#from-scratch
+    VueRouter({
+      // Folder(s) to scan for vue components and generate routes. Can be a string, or
+      // an object, or an array of those.
+      routesFolder: ["./views"],
+      // allowed extensions to be considered as routes
+      extensions: [".vue"],
+      // list of glob files to exclude from the routes generation
+      // e.g. ['**/__*'] will exclude all files starting with `__`
+      // e.g. ['**/__*/**/*'] will exclude all files within folders starting with `__`
+      exclude: [],
+      dts: "./src/unplugin/typed-router.d.ts",
+      getRouteName: (arg: any) => arg.value.rawSegment,
+      routeBlockLang: "json5",
+      importMode: process.env.NODE_ENV === "production" ? "sync" : "async",
+    }),
+    vue(),
+    vueJsx(),
+    // https://github.com/unplugin/unplugin-auto-import?tab=readme-ov-file#configuration
+    AutoImport({
+      defaultExportByFilename: true,
+      eslintrc: {
+        enabled: true, // Default `false`
+        filepath: "./src/unplugin/.eslintrc-auto-import.json", // Default `./.eslintrc-auto-import.json`
+        globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+      },
+      imports: ["vue", VueRouterAutoImports, { "vue-router/auto": ["useLink"] }, "@vueuse/core"],
+      dts: "./src/unplugin/auto-imports.d.ts",
+      vueTemplate: true,
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+      ],
+      dirs: [
+        "./components", // only root modules
+        "./composables", // only root modules
+        "./globals",
+        "./src/components", // only root modules
+        "./src/composables", // only root modules
+        "./src/globals",
+      ],
+    }),
+  ],
   resolve: {
     alias: {
-      '@/': fileURLToPath(new URL('./src', import.meta.url)) + '/',
-      stream: 'stream-browserify'
-      // vm: "vm-browserify",
-      // Buffer: "buffer/",
-    }
+      "~": fileURLToPath(new URL("./", import.meta.url)),
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
   },
-  css: {
-    preprocessorOptions: {
-      less: {
-        javascriptEnabled: true
-      }
-    }
-  },
-  server: {
-    port: Number(env.VITE_APP_PORT) || 5173,
-    strictPort: false
-    // proxy: {
-    //   [VITE_PROXY_PREFIX]: {
-    //     target: `http://${env.NGINX_server_name}:${env.NGINX_listen}`,
-    //     changeOrigin: true,
-    //     rewrite: (path) => path.replace(VITE_PROXY_PREFIX_REGEX, '')
-    //   }
-    // }
-  }
-})
+});

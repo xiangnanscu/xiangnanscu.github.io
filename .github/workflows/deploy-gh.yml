@@ -13,12 +13,9 @@ jobs:
       - name: Setup node env 📦
         uses: actions/setup-node@v3
         with:
-          node-version: '18.17.1'
+          node-version-file: ".nvmrc"
           registry-url: https://registry.npmjs.org
           check-latest: true
-
-      - name: Upgrade npm ✨
-        run: npm i -g npm@latest
 
       - name: Install dependencies 🚀
         run: npm i

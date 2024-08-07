@@ -1,33 +1,47 @@
-/* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution')
+require("@rushstack/eslint-patch/modern-module-resolution");
 
 module.exports = {
   root: true,
-  extends: [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    '@vue/eslint-config-typescript',
-    '@vue/eslint-config-prettier/skip-formatting'
-  ],
-  globals: {
-    document: 'readonly'
-  },
-  parserOptions: {
-    ecmaVersion: 'latest'
-  },
   env: {
     node: true,
-    amd: true
+    amd: true,
   },
   rules: {
-    'vue/multi-word-component-names': 'off',
-    'vue/no-unused-vars': ['warn', { ignorePattern: '^_' }],
-    'prefer-const': ['error', { destructuring: 'all', ignoreReadBeforeAssign: false }],
-    'no-unused-vars': ['warn', { vars: 'all', args: 'after-used', argsIgnorePattern: '^_' }],
-    // "max-len": ["error", { code: 94, ignoreUrls: true }],
-    'no-mixed-operators': 'off',
-    'no-unexpected-multiline': 'off',
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-  }
-}
+    "no-constant-condition": 0,
+    "no-empty": 0,
+    "prettier/prettier": [
+      "warn",
+      {
+        printWidth: 120,
+      },
+    ],
+    "max-len": ["warn", { code: 120, ignoreComments: true, ignoreStrings: true }],
+    "prefer-const": [
+      "error",
+      {
+        destructuring: "all",
+        ignoreReadBeforeAssign: false,
+      },
+    ],
+    "vue/no-unused-vars": [
+      "warn",
+      {
+        ignorePattern: "^_",
+      },
+    ],
+    "no-unused-vars": ["warn", { vars: "all", args: "after-used", argsIgnorePattern: "^_" }],
+    "vue/multi-word-component-names": "off",
+  },
+  extends: [
+    // 这里必须以./开头,否则不会被识别为文件路径
+    "./src/unplugin/.eslintrc-auto-import.json",
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/eslint-config-typescript",
+    "@vue/eslint-config-prettier/skip-formatting",
+  ],
+  parserOptions: {
+    ecmaVersion: "latest",
+    // parserOptions: { tsconfigRootDir: __dirname }
+  },
+};
