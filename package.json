@@ -2,6 +2,7 @@
   "name": "xiangnanscu.github.io",
   "version": "0.1.0",
   "type": "module",
+  "packageManager": "pnpm@9.6.0",
   "scripts": {
     "env": "dotenv -e .env -e .env.local --",
     "postinstall": "patch-package",
