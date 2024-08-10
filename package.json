@@ -6,8 +6,8 @@
   "scripts": {
     "env": "dotenv -e .env -e .env.local --",
     "postinstall": "patch-package",
-    "dev": "yarn env vite",
-    "build": "NODE_ENV=production yarn env vite build",
+    "dev": "pnpm run env vite",
+    "build": "NODE_ENV=production pnpm run env vite build",
     "preview": "vite preview",
     "test": "vitest",
     "build-only": "vite build",
