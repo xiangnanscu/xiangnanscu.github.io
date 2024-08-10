@@ -5,7 +5,7 @@ import { generateSidebar } from 'vitepress-sidebar';
 export default defineConfig({
   title: "xnscu's blog",
   description: "A blog",
-  mpa: true,
+  mpa: false,
   lang: 'zh-Hans',
   themeConfig: {
     outline: {
