@@ -32,6 +32,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "@docsearch/js": "3",
     "@vueuse/core": "^9.6.0",
     "@vueuse/integrations": "^9.11.0",
     "universal-cookie": "^7.2.0",

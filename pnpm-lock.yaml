@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@docsearch/js':
+        specifier: '3'
+        version: 3.6.1(@algolia/client-search@4.24.0)(search-insights@2.16.2)
       '@vueuse/core':
         specifier: ^9.6.0
         version: 9.13.0(vue@3.4.36(typescript@5.4.5))

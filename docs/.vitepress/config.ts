@@ -5,13 +5,20 @@ import { generateSidebar } from 'vitepress-sidebar';
 export default defineConfig({
   title: "xnscu's blog",
   description: "A blog",
-  mpa:false,
+  mpa: true,
+  lang: 'zh-Hans',
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
+    outline: {
+      label: '页面导航'
+    },
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+    editLink: {
+      pattern: 'https://github.com/xiangnanscu/xiangnanscu.github.io/edit/master/docs/:path',
+      text: '编辑'
+    },
     lastUpdated: {
       text: '更新于',
       formatOptions: {
@@ -19,14 +26,21 @@ export default defineConfig({
         timeStyle: 'short'
       }
     },
-    sidebar: [
-      {
-        text: '嵌套',
-        items: [
-          { text: 'postgresql分页查询优化', link: 'pg/postgresql分页查询优化' },
-        ]
-      },
-      ...generateSidebar({
+    // https://vitepress.dev/reference/default-theme-config
+    nav: [
+      { text: '主页', link: '/' },
+      { text: '示例', link: '/markdown-examples' }
+    ],
+    // https://docsearch.algolia.com/docs/DocSearch-v3
+    search: {
+      provider: 'algolia',
+      options: {
+        appId: 'R2IYF7ETH7',
+        apiKey: '599cec31baffa4868cae4e79f180729b',
+        indexName: 'docsearch',
+      }
+    },
+    sidebar: generateSidebar({
       /*
        * For detailed instructions, see the links below:
        * https://vitepress-sidebar.jooy2.com/guide/api
@@ -62,14 +76,14 @@ export default defineConfig({
       includeRootIndexFile: false,
       includeFolderIndexFile: false,
       includeEmptyFolder: false,
-      rootGroupText: 'Contents',
-      rootGroupLink: 'https://github.com/jooy2',
+      rootGroupText: '目录',
+      rootGroupLink: 'https://github.com/xiangnanscu',
       rootGroupCollapsed: false,
       convertSameNameSubFileToGroupIndexPage: false,
       folderLinkNotIncludesFileName: false,
       keepMarkdownSyntaxFromTitle: false,
       debugPrint: false,
-    })],
+    }),
     socialLinks: [
       { icon: 'github', link: 'https://github.com/xiangnanscu/xiangnanscu.github.io' }
     ]
