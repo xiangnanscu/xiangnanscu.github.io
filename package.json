@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@docsearch/js": "3",
+    "@giscus/vue": "^3.0.0",
     "@vueuse/core": "^9.6.0",
     "@vueuse/integrations": "^9.11.0",
     "universal-cookie": "^7.2.0",

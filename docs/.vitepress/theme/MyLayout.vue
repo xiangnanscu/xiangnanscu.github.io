@@ -1,21 +1,38 @@
 <!--.vitepress/theme/MyLayout.vue-->
 <script setup>
-import DefaultTheme from 'vitepress/theme'
-import { useData } from 'vitepress'
-
+import DefaultTheme from "vitepress/theme";
+import { useData } from "vitepress";
+import Giscus from '@giscus/vue';
 
 // https://vitepress.dev/zh/guide/extending-default-theme
-const { Layout } = DefaultTheme
-const pageData = useData()
-console.log(pageData)
+const { Layout } = DefaultTheme;
+const pageData = useData();
 </script>
 
 <template>
   <Layout>
     <template #doc-before>
       <div class="my-last-updated">
-        {{ new Date(useData().page.value.lastUpdated).toLocaleString().slice(0,-3) }}
+        {{ new Date(useData().page.value.lastUpdated).toLocaleString().slice(0, -3) }}
       </div>
+    </template>
+    <template #doc-after>
+      <Giscus
+        id="comments"
+        repo="xiangnanscu/xiangnanscu.github.io"
+        repoId="R_kgDOHj14pA"
+        category="Announcements"
+        categoryId="DIC_kwDOHj14pM4Cc6jT"
+        mapping="pathname"
+        term="Welcome to @giscus/vue component!"
+        strict="1"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="bottom"
+        theme="light"
+        lang="zh-CN"
+        loading="lazy"
+      />
     </template>
   </Layout>
 </template>
@@ -24,6 +41,6 @@ console.log(pageData)
 .my-last-updated {
   margin-bottom: 20px;
   font-style: italic;
-  color:#666;
+  color: #666;
 }
 </style>
