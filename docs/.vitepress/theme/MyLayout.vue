@@ -18,7 +18,7 @@ const pageData = useData();
     </template>
     <template #doc-after>
       <div style="margin-top: 2em"></div>
-      <Giscus
+      <!-- <Giscus
         id="comments"
         repo="xiangnanscu/xiangnanscu.github.io"
         repoId="R_kgDOHj14pA"
@@ -33,7 +33,7 @@ const pageData = useData();
         theme="light"
         lang="zh-CN"
         loading="lazy"
-      />
+      /> -->
     </template>
   </Layout>
 </template>

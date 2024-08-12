@@ -7,7 +7,16 @@ export default defineConfig({
   description: "A blog",
   mpa: false,
   lang: "zh-Hans",
-  head: [["script", { defer: "", src: "https://static.cloudflareinsights.com/beacon.min.js", "data-cf-beacon": '{"token": "2595614415824c6c86cb58b36566cd3d"}' }]],
+  head: [
+    [
+      "script",
+      {
+        defer: "",
+        src: "https://static.cloudflareinsights.com/beacon.min.js",
+        "data-cf-beacon": '{"token": "2595614415824c6c86cb58b36566cd3d"}',
+      },
+    ],
+  ],
   themeConfig: {
     outline: {
       label: "页面导航",
