@@ -48,7 +48,7 @@ export default {
       // The default is true, which means enabled, this parameter can be ignored;
       // If it is false, it means it is not enabled.
       // You can use `comment: true` preface to enable it separately on the page.
-      true
+      true,
     );
   },
 };

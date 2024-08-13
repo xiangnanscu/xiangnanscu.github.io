@@ -30,7 +30,7 @@ export default defineConfig({
       text: "编辑",
     },
     lastUpdated: {
-      text: "更新于",
+      text: "",
       formatOptions: {
         dateStyle: "short",
         timeStyle: "short",
@@ -38,8 +38,8 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "主页", link: "/" },
-      { text: "示例", link: "/markdown-examples" },
+      { text: "home", link: "/" },
+      // { text: "示例", link: "/markdown-examples" },
     ],
     // https://docsearch.algolia.com/docs/DocSearch-v3
     search: {
