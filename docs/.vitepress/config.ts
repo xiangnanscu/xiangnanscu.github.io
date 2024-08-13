@@ -3,10 +3,18 @@ import { generateSidebar } from "vitepress-sidebar";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "xnscu's blog",
-  description: "A blog",
+  title: "xnscu",
+  // description: "由 Vite 和 Vue 驱动的静态站点生成器",
   mpa: false,
   lang: "zh-Hans",
+  cleanUrls: true,
+  // locales: {
+  //   root: {
+  //     label: "English",
+  //     lang: "en",
+  //   },
+  //   zh: { label: "简体中文", lang: "zh" },
+  // },
   head: [
     [
       "script",
@@ -18,6 +26,7 @@ export default defineConfig({
     ],
   ],
   themeConfig: {
+    logo: { src: "/vitepress-logo-mini.svg", width: 24, height: 24 },
     outline: {
       label: "页面导航",
     },
@@ -30,7 +39,7 @@ export default defineConfig({
       text: "编辑",
     },
     lastUpdated: {
-      text: "",
+      text: "更新于",
       formatOptions: {
         dateStyle: "short",
         timeStyle: "short",

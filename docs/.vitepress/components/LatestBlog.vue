@@ -1,7 +1,6 @@
 
 <template>
   <div>
-    <h2>latest blogs</h2>
     <ul>
       <li><a href="postgresql/about-pg-insert-or-get_or_create.html">insert</a><span>2024-8-12</span></li>
       <li><a href="postgresql/postgresql分页查询优化.html">优化查询获取总记录数</a><span>2024-8-12</span></li>
@@ -27,7 +26,6 @@ li {
 
 a {
   display: flex;
-  color: var(--vp-home-hero-name-color);
   text-decoration: none;
   transition: color 0.2s;
 }

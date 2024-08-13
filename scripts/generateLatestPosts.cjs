@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const git = require("isomorphic-git");
 
-const LATEST_NUMBER = 5;
+const LATEST_NUMBER = 10;
 
 async function getFileHistory(filePath) {
   try {
@@ -79,7 +79,6 @@ async function main() {
     `
 <template>
   <div>
-    <h2>latest blogs</h2>
     <ul>
       ${lists.join("\n      ")}
     </ul>
@@ -101,7 +100,6 @@ li {
 
 a {
   display: flex;
-  color: var(--vp-home-hero-name-color);
   text-decoration: none;
   transition: color 0.2s;
 }
