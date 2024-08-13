@@ -6,9 +6,9 @@ hero:
   name: "xnscu docs"
   text: "Record the Essentials"
   tagline: reading · thinking · doing
-  image:
-    src: /vitepress-logo-large.webp
-    alt: VitePress
+  # image:
+  #   src: /vitepress-logo-large.webp
+  #   alt: VitePress
 ---
 
 <script setup>
@@ -19,6 +19,7 @@ import  LatestPosts from ".vitepress/components/LatestBlog.vue"
 <LatestPosts />
 
 <style>
+/* https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css */
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff);

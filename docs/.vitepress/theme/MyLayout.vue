@@ -2,7 +2,7 @@
 <script setup>
 import DefaultTheme from "vitepress/theme";
 import { useData } from "vitepress";
-import Giscus from '@giscus/vue';
+import Giscus from "@giscus/vue";
 
 // https://vitepress.dev/zh/guide/extending-default-theme
 const { Layout } = DefaultTheme;

@@ -7,6 +7,8 @@
       <li><a href="postgresql/postgresql如何获取最大连接数.html">postgresql如何获取最大连接数</a><span>2024-8-12</span></li>
       <li><a href="读后感/智能时代.html">智能时代</a><span>2024-8-12</span></li>
       <li><a href="随笔/占位符.html">第一篇随笔</a><span>2024-8-12</span></li>
+      <li><a href="api-examples.html">Runtime API Examples</a><span>2024-8-10</span></li>
+      <li><a href="markdown-examples.html">Markdown Extension Examples</a><span>2024-8-10</span></li>
     </ul>
   </div>
 </template>

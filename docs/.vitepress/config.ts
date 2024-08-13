@@ -2,6 +2,7 @@ import { defineConfig } from "vitepress";
 import { generateSidebar } from "vitepress-sidebar";
 
 // https://vitepress.dev/reference/site-config
+// https://github.com/vuejs/vitepress/blob/main/docs/.vitepress/config/zh.ts
 export default defineConfig({
   title: "xnscu",
   // description: "由 Vite 和 Vue 驱动的静态站点生成器",
@@ -47,7 +48,7 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "home", link: "/" },
+      // { text: "home", link: "/" },
       // { text: "示例", link: "/markdown-examples" },
     ],
     // https://docsearch.algolia.com/docs/DocSearch-v3
