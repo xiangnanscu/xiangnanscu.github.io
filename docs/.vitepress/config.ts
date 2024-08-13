@@ -57,8 +57,8 @@ export default defineConfig({
        * https://vitepress-sidebar.jooy2.com/guide/api
        */
       documentRootPath: "/docs",
-      scanStartPath: null,
-      resolvePath: null,
+      // scanStartPath: null, // will trigger ts error
+      // resolvePath: null, // will trigger ts error
       // useTitleFromFileHeading: true,
       useTitleFromFrontmatter: true,
       frontmatterTitleFieldName: "title",
