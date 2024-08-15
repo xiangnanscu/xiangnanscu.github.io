@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress";
 import { generateSidebar } from "vitepress-sidebar";
+import { version } from "../../package.json";
 
 // https://vitepress.dev/reference/site-config
 // https://github.com/vuejs/vitepress/blob/main/docs/.vitepress/config/zh.ts
@@ -48,10 +49,11 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      // { text: "home", link: "/" },
+      { text: version, link: "" },
       // { text: "示例", link: "/markdown-examples" },
     ],
     // https://docsearch.algolia.com/docs/DocSearch-v3
+    // https://dashboard.algolia.com/apps/DZOK7P9YI0/dashboard
     search: {
       provider: "algolia",
       options: {

@@ -61,8 +61,8 @@ function getChineseDate(date) {
     date = new Date(date);
   }
   const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
 
@@ -78,43 +78,40 @@ async function main() {
     "docs/.vitepress/components/LatestBlog.vue",
     `
 <template>
-  <div>
-    <ul>
-      ${lists.join("\n      ")}
-    </ul>
-  </div>
+  <ul class="list">
+    ${lists.join("\n      ")}
+  </ul>
 </template>
 
 <style scoped>
-ul {
+.list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-li {
+.list li {
   margin: 0.5rem 0;
   display: flex;
   justify-content: space-between;
 }
 
-a {
+.list a {
   display: flex;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-a:hover {
+.list a:hover {
   color: #2c3e50;
 }
 
-span {
+.list span {
   color: #666;
   font-size: 0.9em;
+  font-family: monospace, "Courier New";
 }
-</style>
-
-  `,
+</style>`,
   );
 }
 
