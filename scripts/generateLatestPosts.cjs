@@ -11,7 +11,7 @@ async function getFileHistory(filePath) {
       dir: process.cwd(),
       filepath: filePath,
     });
-    return new Date(commits[0].commit.committer.timestamp * 1000);
+    return new Date(commits[commits.length - 1].commit.committer.timestamp * 1000);
   } catch (err) {
     console.error("Error:", err);
   }

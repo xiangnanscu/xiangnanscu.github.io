@@ -1,15 +1,19 @@
 # prompts for model defination code of lua-resty-model
 
+## souce code
+
 ````md
 现在我要给定一些近似自然语言的数据库表的描述, 你要把它转换为 luajit 语法的代码, 具体描述如下:
 
 # 语法
 
 形如:
+
 ```
 表名1(列名1, 列名2:列属性1, ...)
 表名2(列名1, 列名2:列属性1|列属性2, ...)
 ```
+
 具体约定:
 
 - 多个列名由逗号`,`连接
@@ -88,5 +92,4 @@ return {
  OrgAdmin = OrgAdmin,
 }
 ```
-
 ````

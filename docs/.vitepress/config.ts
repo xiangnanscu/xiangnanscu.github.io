@@ -28,6 +28,9 @@ export default defineConfig({
     ],
   ],
   themeConfig: {
+    footer: {
+      message: `version ${version}`,
+    },
     logo: { src: "/vitepress-logo-mini.svg", width: 24, height: 24 },
     outline: {
       label: "页面导航",
@@ -49,7 +52,7 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: version, link: "" },
+      // { text: version, link: "" },
       // { text: "示例", link: "/markdown-examples" },
     ],
     // https://docsearch.algolia.com/docs/DocSearch-v3

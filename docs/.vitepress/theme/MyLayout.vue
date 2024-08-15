@@ -11,7 +11,7 @@ const pageData = useData();
 
 <template>
   <Layout>
-    <template #doc-before>
+    <template #doc-before2>
       <div class="my-last-updated">
         {{ new Date(useData().page.value.lastUpdated).toLocaleString().slice(0, -3) }}
       </div>
