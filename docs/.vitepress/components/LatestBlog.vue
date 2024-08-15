@@ -2,6 +2,8 @@
 <template>
   <div>
     <ul>
+      <li><a href="chat/prompts-for-model-defination-code-of-lua-resty-model.html">prompts for model defination code of lua-resty-model</a><span>2024-8-15</span></li>
+      <li><a href="chat/如何实现输入框粘贴自动上传图片的功能.html">如何实现输入框粘贴自动上传图片的功能</a><span>2024-8-13</span></li>
       <li><a href="postgresql/about-pg-insert-or-get_or_create.html">insert</a><span>2024-8-12</span></li>
       <li><a href="postgresql/postgresql分页查询优化.html">优化查询获取总记录数</a><span>2024-8-12</span></li>
       <li><a href="postgresql/postgresql如何获取最大连接数.html">postgresql如何获取最大连接数</a><span>2024-8-12</span></li>

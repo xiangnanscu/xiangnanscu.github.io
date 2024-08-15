@@ -55,9 +55,9 @@ export default defineConfig({
     search: {
       provider: "algolia",
       options: {
-        appId: "2LM7DM5P4O",
-        apiKey: "900a2602ae8f4a8a32d58e3e8a2f282c",
-        indexName: "docsearch",
+        appId: "DZOK7P9YI0",
+        apiKey: "500e3bc4051eb3541f2fde622983568b",
+        indexName: "xnscu",
       },
     },
     socialLinks: [{ icon: "github", link: "https://github.com/xiangnanscu/xiangnanscu.github.io" }],
