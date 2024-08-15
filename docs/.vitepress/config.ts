@@ -55,8 +55,8 @@ export default defineConfig({
     search: {
       provider: "algolia",
       options: {
-        appId: "R2IYF7ETH7",
-        apiKey: "599cec31baffa4868cae4e79f180729b",
+        appId: "2LM7DM5P4O",
+        apiKey: "900a2602ae8f4a8a32d58e3e8a2f282c",
         indexName: "docsearch",
       },
     },
