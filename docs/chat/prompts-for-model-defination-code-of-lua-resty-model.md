@@ -27,7 +27,7 @@
   - `reference==[MODEL]`, 表示外键引用的模型
 - 列名有前缀`#`时,表示该列的类型为`integer`, 例如: `#年级`和`年级:type=integer`是等效的
 - 列名有前缀`~`时,表示该列是唯一的, 例如: `~列名`和`列名:unique`是等效的
-- 列名有前缀`@`时,表示该列是外键, 输出的 luajit 代码中的中文列名需省略`@`,并加上后缀`ID`. 如果是`@表名/别名`这种形式,例如`@用户/创建者`则等效于`{'usr_id', '创建者', reference = Usr}`
+- 列名有前缀`@`时,表示该列是外键, 输出的 luajit 代码中的中文列名需省略`@`,并加上后缀`ID`. 如果是`@表名/别名`这种形式,例如`@用户/创建者`则等效于`{name = 'usr_id', label = '创建者', reference = Usr}`
 - 列名有后缀`!`时, 表示该列是必填的, 例如`列名!` 和 `列名:required=true`是等效的
 - 形如`列名[x,y,z]`的列名表示值限定在['x','y','z'], 它和描述`列名:choices=[x,y,z]`是等效的.
 - 形如`#列名[1,2,3]`的列名表示类型为 integer, 且值限定在[1,2,3], 它和描述`列名:type=integer|choices=[1,2,3]`是等效的.
@@ -65,25 +65,25 @@
 local Usr = Model {
   table_name = 'usr',
   label = '用户',
-  {"name",'名称', maxlength=10,  unique=true},
-  {"password", '密码', maxlength=255},
-  {"sex", "性别", choices={'男', '女'},index=true},
-  {"age", '年龄', type='integer', min=1, max=10},
+  {name = "name", label = '名称', maxlength=10,  unique=true},
+  {name = "password", label = '密码', maxlength=255},
+  {name = "sex", label = "性别", choices={'男', '女'},index=true},
+  {name = "age", label = '年龄', type='integer', min=1, max=10},
 }
 
 ---@class Org
 local Org = Model {
   table_name = 'org',
   label = '机构',
-  {"name", "名称", unique=true, maxlength=10},
+  {name = "name", label = "名称", unique=true, maxlength=10},
 }
 
 ---@class OrgAdmin
 local OrgAdmin = Model {
   table_name = 'org_admin',
   label = '机构管理员',
-  {'usr_id', '管理员', reference = Usr},
-  {'org_id', '机构ID', reference = Org},
+  {name = 'usr_id', label = '管理员', reference = Usr},
+  {name = 'org_id', label = '机构ID', reference = Org},
 }
 
 return {
