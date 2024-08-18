@@ -65,25 +65,31 @@
 local Usr = Model {
   table_name = 'usr',
   label = '用户',
-  {name = "name", label = '名称', maxlength=10,  unique=true},
-  {name = "password", label = '密码', maxlength=255},
-  {name = "sex", label = "性别", choices={'男', '女'},index=true},
-  {name = "age", label = '年龄', type='integer', min=1, max=10},
+  fields = {
+    {name = "name", label = '名称', maxlength=10,  unique=true},
+    {name = "password", label = '密码', maxlength=255},
+    {name = "sex", label = "性别", choices={'男', '女'},index=true},
+    {name = "age", label = '年龄', type='integer', min=1, max=10},
+  }
 }
 
 ---@class Org
 local Org = Model {
   table_name = 'org',
   label = '机构',
-  {name = "name", label = "名称", unique=true, maxlength=10},
+  fields = {
+    {name = "name", label = "名称", unique=true, maxlength=10},
+  }
 }
 
 ---@class OrgAdmin
 local OrgAdmin = Model {
   table_name = 'org_admin',
   label = '机构管理员',
-  {name = 'usr_id', label = '管理员', reference = Usr},
-  {name = 'org_id', label = '机构ID', reference = Org},
+  fields = {
+    {name = 'usr_id', label = '管理员', reference = Usr},
+    {name = 'org_id', label = '机构ID', reference = Org},
+  }
 }
 
 return {
