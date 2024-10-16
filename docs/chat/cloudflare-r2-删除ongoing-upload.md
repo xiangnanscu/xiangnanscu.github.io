@@ -30,12 +30,15 @@ aws s3api list-multipart-uploads --bucket $R2_BUCKET --endpoint-url $R2_ENDPOINT
 ```sh
 #!/bin/bash
 
+R2_ACCOUNT_ID=xx
+R2_ENDPOINT_URL=https://$R2_ACCOUNT_ID.r2.cloudflarestorage.com
+R2_BUCKET=bmbk
 # 使用aws s3api命令获取对象列表并通过jq计算总大小
 total_size_bytes=$(aws s3api list-objects --bucket $R2_BUCKET --endpoint-url $R2_ENDPOINT_URL | \
   jq '[.Contents[].Size] | add // 0')
 
 # 将字节转换为GB
-total_size_gb=$(echo "scale=2; $total_size_bytes / (1024 * 1024 * 1024)" | bc)
+total_size_gb=$(echo "scale=2; $total_size_bytes / (1000 * 1000 * 1000)" | bc)
 
 echo "所有对象的总大小为: ${total_size_gb} GB"
 ```
