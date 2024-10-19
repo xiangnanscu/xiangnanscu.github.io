@@ -22,7 +22,10 @@ apt-get install jq
 aws configure set aws_access_key_id $R2_ACCESS_KEY_ID
 aws configure set aws_secret_access_key $R2_SECRET_ACCESS_KEY
 aws configure set default.s3.endpoint_url $R2_ENDPOINT_URL
-aws s3api list-multipart-uploads --bucket $R2_BUCKET --endpoint-url $R2_ENDPOINT_URL
+```
+
+## 删除
+```sh
 aws s3api list-multipart-uploads --bucket $R2_BUCKET --endpoint-url $R2_ENDPOINT_URL  | jq -r '.Uploads[] | "--key \"\(.Key)\" --upload-id \(.UploadId)"' | while read -r line; do eval "aws s3api abort-multipart-upload --bucket $R2_BUCKET $line --endpoint-url $R2_ENDPOINT_URL"; done
 ```
 
