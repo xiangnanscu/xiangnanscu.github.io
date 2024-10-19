@@ -39,7 +39,7 @@ for root, dirs, files in os.walk(current_dir):
                 "-loglevel", "warning",  # 控制日志级别，只显示警告和错误信息
                 "-progress", "-",  # 将进度信息输出到标准输出
                 "-i", input_file,
-                "-vf", f"scale=-1:{target_resolution}",  # 保持宽高比，只调整高度
+                "-vf", f"scale=trunc(oh*a/2)*2:{target_resolution}",  # 保持宽高比，只调整高度
                 "-c:v", "libx264",  # 使用H.264编码
                 "-crf", "23",  # 质量因子，23是默认值，越小质量越高
                 "-preset", "medium",  # 编码速度与文件大小平衡
@@ -69,7 +69,7 @@ for root, dirs, files in os.walk(current_dir):
                 "-loglevel", "warning",  # 控制日志级别，只显示警告和错误信息
                 "-progress", "-",  # 将进度信息输出到标准输出
                 "-i", input_file,
-                "-vf", f"scale=-1:{target_resolution}",  # 保持宽高比，只调整高度
+                "-vf", f"scale=trunc(oh*a/2)*2:{target_resolution}",  # 保持宽高比，只调整高度
                 "-c:v", "libx264",  # 使用H.264编码
                 "-crf", "23",  # 质量因子，23是默认值，越小质量越高
                 "-preset", "medium",  # 编码速度与文件大小平衡
