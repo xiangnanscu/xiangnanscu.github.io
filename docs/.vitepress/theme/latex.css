@@ -1,0 +1,12 @@
+/* 1. 修正数学公式块的滚动条选择器 */
+.MathJax {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  text-align: left !important;
+}
+
+.MathJax::-webkit-scrollbar {
+  display: none;
+}

@@ -1,15 +1,16 @@
 
 <template>
   <ul class="list">
-    <li><a href="chat/prompts-for-model-defination-code-of-lua-resty-model.html">prompts for model defination code of lua-resty-model</a><span>2024-08-15</span></li>
-      <li><a href="chat/如何实现输入框粘贴自动上传图片的功能.html">如何实现输入框粘贴自动上传图片的功能</a><span>2024-08-13</span></li>
-      <li><a href="postgresql/about-pg-insert-or-get_or_create.html">insert</a><span>2024-08-12</span></li>
-      <li><a href="postgresql/postgresql分页查询优化.html">优化查询获取总记录数</a><span>2024-08-12</span></li>
-      <li><a href="postgresql/postgresql如何获取最大连接数.html">postgresql如何获取最大连接数</a><span>2024-08-12</span></li>
-      <li><a href="读后感/智能时代.html">智能时代</a><span>2024-08-12</span></li>
-      <li><a href="随笔/占位符.html">第一篇随笔</a><span>2024-08-12</span></li>
-      <li><a href="api-examples.html">Runtime API Examples</a><span>2024-08-10</span></li>
-      <li><a href="markdown-examples.html">Markdown Extension Examples</a><span>2024-08-10</span></li>
+    <li><a href="chat/systemctl停用.html">systemctl停用</a><span>2024-11-09</span></li>
+      <li><a href="postgresql/postgresql如何查看执行过的语句的最长查询时间和对应的语句.html">postgresql如何查看执行过的语句的最长查询时间和对应的语句</a><span>2024-11-09</span></li>
+      <li><a href="工具/doc2x.html">doc2x识别试卷、数学公式</a><span>2024-11-09</span></li>
+      <li><a href="chat/个人开发者跨平台开发claude建议flutter,-MAUI哭晕在厕所.html">个人开发者跨平台开发claude建议flutter, MAUI哭晕在厕所</a><span>2024-10-28</span></li>
+      <li><a href="chat/systemctl彻底删除postfix服务.html">systemctl彻底删除postfix服务</a><span>2024-10-28</span></li>
+      <li><a href="chat/Postfix搭建邮件服务器.html">Postfix搭建邮件服务器</a><span>2024-10-23</span></li>
+      <li><a href="chat/cloudflare-r2-删除ongoing-upload.html">cloudflare r2 删除ongoing upload</a><span>2024-10-15</span></li>
+      <li><a href="chat/ffmpeg转换格式压缩视频.html">ffmpeg转换格式压缩视频</a><span>2024-10-13</span></li>
+      <li><a href="chat/ChatGPT数学基础.html">ChatGPT数学基础</a><span>2024-10-02</span></li>
+      <li><a href="chat/ubuntu如何结束top命令显示COMMAND对应名称的进程.html">ubuntu如何结束top命令显示COMMAND对应名称的进程?</a><span>2024-09-08</span></li>
   </ul>
 </template>
 
