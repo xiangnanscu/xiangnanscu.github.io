@@ -1,4 +1,4 @@
-# prompts for model defination code of lua-resty-model
+# Model代码生成器
 
 ## souce code
 
